@@ -4,15 +4,24 @@ import pygame
 import modules.area as area
 import modules.settings as settings
 import modules.sprites as sprites
-import modules.enemy as enemy
+import modules.enemy as enemys
 import modules.heart as heart
 import modules.button as button
-# 3. Ініціалізувати налаштування pygame
+# 3. Ініціалізувати налаштування pygameeeeeeeeeee
 pygame.init()
 
 win_height = 800
 win_width = 800
-
+ 
+ 
+ 
+ 
+def can_kill_enemy(enemy):
+    if sprites.sprite.flag_attack == True:
+        sword = pygame.Rect(sprites.sprite.X + sprites.sprite.WIDTH, sprites.sprite.Y, 60, 90)
+        if sword.colliderect(enemy.RECT):
+            enemys.enemy_list.remove(enemy)
+            print(enemy)
 # 4.Cтворюємо ігровое вікно з ім'ям win 
 win = pygame.display.set_mode((win_width,win_height))
 # 5. Задаємо назву ігрового вікна
@@ -67,35 +76,31 @@ def run_game():
             #
             heart.show_hearts(win)
             sprites.sprite.blit_sprite(win)
-            enemy.enemy1.blit_sprite(win)
-            enemy.enemy2.blit_sprite(win)
-            enemy.enemy3.blit_sprite(win)
-            enemy.enemy4.blit_sprite(win)
-            enemy.enemy5.blit_sprite(win)
+
             #
             sprites.sprite.can_move_right(list_rect)
             sprites.sprite.can_move_left(list_rect)
+            # sprites.sprite.can_kill_enemy(enemys.enemy1.RECT)
+            # sprites.sprite.can_kill_enemy(enemys.enemy2.RECT)
+            # sprites.sprite.can_kill_enemy(enemys.enemy3.RECT)
+            # sprites.sprite.can_kill_enemy(enemys.enemy4.RECT)
+            # sprites.sprite.can_kill_enemy(enemys.enemy5.RECT)
+            
+
             #
             sprites.sprite.move_sprite(list_rect)
-            enemy.enemy1.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 13, first_img= 2)
-            enemy.enemy4.move_enemy(list_rect, name_folder="robot_shoot", count_while=4, last_img=13, first_img=2)
-            enemy.enemy5.move_enemy(list_rect, name_folder="robot_shoot", count_while=4, last_img=13, first_img=2)
-            # enemy.enemy6.move_enemy(list_rect, name_folder="robot_shoot", count_while=4, last_img=13, first_img=2)
+            
             #           
             sprites.sprite.jump(list_rect)
             #
             sprites.sprite.gravity(list_rect= list_rect)
-            enemy.enemy1.gravity(list_rect= list_rect)
-            enemy.enemy2.gravity(list_rect= list_rect)
-            enemy.enemy3.gravity(list_rect= list_rect)
-            enemy.enemy4.gravity(list_rect= list_rect)
-            enemy.enemy5.gravity(list_rect= list_rect)
-            # enemy.enemy6.gravity(list_rect= list_rect)
-            enemy.enemy2.shoot(win, 200, list_rect= list_rect, width=80, height=25, name_sprite= sprites.sprite)
-            enemy.enemy3.shoot(win, 200, list_rect= list_rect, width=80, height= 25, name_sprite= sprites.sprite)
-            enemy.enemy4.shoot(win, 100, list_rect= list_rect, width= 55, height= 37, name_sprite= sprites.sprite)
-            enemy.enemy5.shoot(win, 100, list_rect= list_rect, width= 55, height= 37, name_sprite= sprites.sprite)
-                # enemy.enemy6.shoot(win, 100, list_rect= list_rect, width= 55, height= 37, name_sprite= sprites.sprite)
+
+            for el in enemys.enemy_list:
+                el.blit_sprite(win)
+                el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 13, first_img= 2)
+                el.gravity(list_rect= list_rect)
+                el.shoot(win, 200, list_rect= list_rect, width=80, height=25, name_sprite= sprites.sprite)
+                can_kill_enemy(el)
             
             if heart.game_over:
                 scene = "tulen"

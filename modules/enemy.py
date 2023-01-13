@@ -92,11 +92,11 @@ class Enemy(sprites.Sprite):
                 #     print("5")
                 # print(bullet1.MOVE_BULLET)
 enemy1 = Enemy(
-    width = 55,
-    height = 65,
+    width = 80,
+    height = 75,
     x = 800,
     y = 0,
-    name_image = "images/robot_shoot/1.png",
+    name_image = "images/robot/1.png",
     color= (255, 0, 0)
 )
 # боты которые стоят на месте
@@ -134,13 +134,9 @@ enemy5 = Enemy(
     name_image = "images/robot_shoot/1.png",
     color= (255, 0, 0)
 )
+enemy_rect_list = [enemy1.RECT, enemy2.RECT, enemy3.RECT, enemy4.RECT, enemy5.RECT]
 
-enemy6 = Enemy(
-    width = 55,
-    height = 65,
-    x = 800,
-    y = 0,
-    name_image = "images/robot_shoot/1.png",
-    color= (255, 0, 0)
-)
+enemy_list = [enemy1, enemy2, enemy3, enemy4, enemy5]
+
+
 

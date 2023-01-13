@@ -3,6 +3,7 @@ import os
 import modules.settings as settings
 import modules.area as area
 
+
 # pygame.init()
 # nac = 1
 win_height = 800
@@ -54,18 +55,11 @@ class Sprite(settings.Settings):
             self.DIRECTION = 'L'
 
             if self.CAN_MOVE_LEFT:
-                # self.can_move_left(list_rect)
                 self.X -= self.STEP
                 self.RECT.x = self.RECT.x - self.STEP
-                # area.change_level2()
-                # area.change_level3()
-                # area.change_level4()
 
             self.animation(folder= "player",count_while=4,last_img= 8, first_img=4)
         # умова, що відповідає за спокійний стан спрайта - спарайт стоїть на місці\
-            # area.change_level2()
-            # area.change_level3()
-            # area.change_level4()
         elif event[pygame.K_e] and self.flag_attack == False:
             self.flag_attack = True
         else:
@@ -79,7 +73,13 @@ class Sprite(settings.Settings):
                 self.flag_attack = False
                 self.COUNT_ATTACK = 14
             self.COUNT_ATTACK += 1
-        
+    # def can_kill_enemy(self, name_enemy):
+    #     if self.flag_attack == True:
+    #         print(1)
+    #         sword = pygame.Rect(self.X + self.WIDTH, self.Y, 60, 90)
+    #         if pygame.Rect.colliderect(sword, name_enemy) == True:
+                
+    #             print(2)
 #   
     def can_move_right(self, list_rect):        
         for block in list_rect:
