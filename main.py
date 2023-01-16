@@ -16,11 +16,11 @@ win_width = 800
  
  
  
-def can_kill_enemy(enemy):
+def can_kill_enemy(list, enemy):
     if sprites.sprite.flag_attack == True:
         sword = pygame.Rect(sprites.sprite.X + sprites.sprite.WIDTH, sprites.sprite.Y, 60, 90)
         if sword.colliderect(enemy.RECT):
-            enemys.enemy_list.remove(enemy)
+            list.remove(enemy)
             print(enemy)
 # 4.Cтворюємо ігровое вікно з ім'ям win 
 win = pygame.display.set_mode((win_width,win_height))
@@ -80,13 +80,6 @@ def run_game():
             #
             sprites.sprite.can_move_right(list_rect)
             sprites.sprite.can_move_left(list_rect)
-            # sprites.sprite.can_kill_enemy(enemys.enemy1.RECT)
-            # sprites.sprite.can_kill_enemy(enemys.enemy2.RECT)
-            # sprites.sprite.can_kill_enemy(enemys.enemy3.RECT)
-            # sprites.sprite.can_kill_enemy(enemys.enemy4.RECT)
-            # sprites.sprite.can_kill_enemy(enemys.enemy5.RECT)
-            
-
             #
             sprites.sprite.move_sprite(list_rect)
             
@@ -94,14 +87,38 @@ def run_game():
             sprites.sprite.jump(list_rect)
             #
             sprites.sprite.gravity(list_rect= list_rect)
-
-            for el in enemys.enemy_list:
-                el.blit_sprite(win)
-                el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 13, first_img= 2)
-                el.gravity(list_rect= list_rect)
-                el.shoot(win, 200, list_rect= list_rect, width=80, height=25, name_sprite= sprites.sprite)
-                can_kill_enemy(el)
+            if "lvl1" in scene:
+                for el in enemys.enemy_list1:
+                    el.blit_sprite(win)
+                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 13, first_img= 2)
+                    el.gravity(list_rect= list_rect)
+                    el.shoot(win, 200, list_rect= list_rect, width=80, height=25, name_sprite= sprites.sprite)
+                    can_kill_enemy(enemys.enemy_list1 ,el)
             
+            if "lvl2" in scene:
+                for el in enemys.enemy_list2:
+                    el.blit_sprite(win)
+                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 13, first_img= 2)
+                    el.gravity(list_rect= list_rect)
+                    el.shoot(win, 200, list_rect= list_rect, width=80, height=25, name_sprite= sprites.sprite)
+                    can_kill_enemy(enemys.enemy_list2 ,el)
+            
+            if "lvl3" in scene:
+                for el in enemys.enemy_list3:
+                    el.blit_sprite(win)
+                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 13, first_img= 2)
+                    el.gravity(list_rect= list_rect)
+                    el.shoot(win, 200, list_rect= list_rect, width=80, height=25, name_sprite= sprites.sprite)
+                    can_kill_enemy(enemys.enemy_list3 ,el)
+                    
+            if "lvl4" in scene:
+                for el in enemys.enemy_list4:
+                    el.blit_sprite(win)
+                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 13, first_img= 2)
+                    el.gravity(list_rect= list_rect)
+                    el.shoot(win, 200, list_rect= list_rect, width=80, height=25, name_sprite= sprites.sprite)
+                    can_kill_enemy(enemys.enemy_list4 ,el)
+
             if heart.game_over:
                 scene = "tulen"
         if scene == "tulen":

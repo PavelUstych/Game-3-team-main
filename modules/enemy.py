@@ -134,9 +134,51 @@ enemy5 = Enemy(
     name_image = "images/robot_shoot/1.png",
     color= (255, 0, 0)
 )
-enemy_rect_list = [enemy1.RECT, enemy2.RECT, enemy3.RECT, enemy4.RECT, enemy5.RECT]
 
-enemy_list = [enemy1, enemy2, enemy3, enemy4, enemy5]
+
+enemy6 = Enemy(
+    width = 55,
+    height = 65,
+    x = 800,
+    y = 0,
+    name_image = "images/robot_shoot/1.png",
+    color= (255, 0, 0)
+)
+
+enemy7 = Enemy(
+    width = 55,
+    height = 65,
+    x = 800,
+    y = 0,
+    name_image = "images/robot_shoot/1.png",
+    color= (255, 0, 0)
+)
+
+enemy8 = Enemy(
+    width = 55,
+    height = 65,
+    x = 800,
+    y = 0,
+    name_image = "images/robot_shoot/1.png",
+    color= (255, 0, 0)
+)
+
+enemy9 = Enemy(
+    width = 55,
+    height = 65,
+    x = 800,
+    y = 0,
+    name_image = "images/robot_shoot/1.png",
+    color= (255, 0, 0)
+)
+# enemy_rect_list = [enemy1.RECT, enemy2.RECT, enemy3.RECT, enemy4.RECT, enemy5.RECT]
+
+# enemy_list = [enemy1, enemy2, enemy3]
+
+enemy_list1 = [enemy1,enemy2,enemy3, enemy4, enemy5]
+enemy_list2 = [enemy1,enemy2,enemy3, enemy4, enemy5, enemy6, enemy7]
+enemy_list3 = [enemy1,enemy2,enemy3, enemy4, enemy5, enemy6, enemy7, enemy8]
+enemy_list4 = [enemy1,enemy2,enemy3, enemy4, enemy5,enemy6, enemy7, enemy8, enemy9]
 
 
 
