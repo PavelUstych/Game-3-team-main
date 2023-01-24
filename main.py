@@ -12,6 +12,8 @@ pygame.init()
 
 win_height = 800
 win_width = 800
+
+
  
  
  
@@ -48,8 +50,14 @@ def run_game():
                     if button.check_mouse_cor(button.play_button, mouse_cor):
                         scene = "lvl1"
                         list_rect,list_create_area = area.create_area(area.list_area_1)
+                        
+                    if button.check_mouse_cor(button.settings_button, mouse_cor):
+                        scene = "settings"
+                        
+                    
             settings.start.blit_sprite(win)
             button.play_button.blit_sprite(win)
+            button.settings_button.blit_sprite(win)
             # button.settings_button.blit_sprite(win)
     # - задіємо об'єкт sprite і викликаємо його метод blit_sprite(), малюємо зображення на ігровому вікні, в центрі екрану
         
@@ -63,9 +71,21 @@ def run_game():
                 list_rect,list_create_area = area.create_area(area.list_area_3)
         if scene == "lvl3":
             if sprites.sprite.X >= 600 and sprites.sprite.Y >= 0 and sprites.sprite.Y <= 100:
-                scene = "lvl4"
+                scene = "win!"
                 list_rect,list_create_area = area.create_area(area.list_area_4)
-            # if not heart.game_over and not start_game:
+        if scene == "win!":
+            settings.finich.blit_sprite(win)
+            
+        if scene == "settings":
+            settings.settings_fon.blit_sprite(win)
+            button.exit_button.blit_sprite(win)
+            button.troll_button.blit_sprite(win)
+            for event in pygame.event.get():
+                if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                        mouse_cor = pygame.mouse.get_pos()
+                        if button.check_mouse_cor(button.exit_button, mouse_cor):
+                            scene = "menu"
+                        
         if "lvl" in scene:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

@@ -13,13 +13,31 @@ play_button = Settings(
     y = 167,
     width= 500,
     height= 120,
-    name_image= ("images/buttons/button_Play.png")
+    name_image= ("images/buttons/button_Play_ork_styl.png")
 )
 
-# settings_button = Settings(
-#     x = 150,
-#     y = 370,
-#     width= 500,
-#     height= 120,
-#     name_image= ("images/buttons/button_Settings.png")
-# )   
+settings_button = Settings(
+    x = 150,
+    y = 370,
+    width= 500,
+    height= 120,
+    name_image= ("images/buttons/button_Settings.png")
+) 
+
+exit_button = Settings(
+    x = 0,
+    y = 0,
+    width= 50,
+    height= 50,
+    name_image= ("images/buttons/exit.png")
+    
+)
+
+troll_button = Settings(
+    x = 123,
+    y = 221,
+    width= 580,
+    height= 349,
+    name_image= ("images/buttons/troll_button.png")
+    
+)

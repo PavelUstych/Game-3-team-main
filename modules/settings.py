@@ -81,3 +81,11 @@ finich = Settings(
     height= win_height,
     name_image= "images/start_end/win!.jfif"
 )
+
+settings_fon = Settings(
+    x = 0,
+    y = 0,
+    width= win_width,
+    height= win_height,
+    name_image= "images/fon/settings_fon.png"
+)
