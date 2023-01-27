@@ -13,7 +13,7 @@ play_button = Settings(
     y = 167,
     width= 500,
     height= 120,
-    name_image= ("images/buttons/button_Play_ork_styl.png")
+    name_image= ("images/buttons/button_Play.png")
 )
 
 settings_button = Settings(
@@ -39,5 +39,14 @@ troll_button = Settings(
     width= 580,
     height= 349,
     name_image= ("images/buttons/troll_button.png")
+    
+)
+
+play_button_2 = Settings(
+    x = 678,
+    y = 737,
+    width= 120,
+    height= 50,
+    name_image= ("images/buttons/button_Play.png")
     
 )

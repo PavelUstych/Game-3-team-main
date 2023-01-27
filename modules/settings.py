@@ -79,7 +79,7 @@ finich = Settings(
     y = 0,
     width= win_width,
     height= win_height,
-    name_image= "images/start_end/win!.jfif"
+    name_image= "images/start_end/win!.jpg"
 )
 
 settings_fon = Settings(
@@ -88,4 +88,11 @@ settings_fon = Settings(
     width= win_width,
     height= win_height,
     name_image= "images/fon/settings_fon.png"
+)
+comics = Settings(
+    x = 0,
+    y = 0,
+    width= win_width,
+    height= win_height,
+    name_image= "images/start_end/comics.jpg"
 )

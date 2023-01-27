@@ -23,7 +23,6 @@ def can_kill_enemy(list, enemy):
         sword = pygame.Rect(sprites.sprite.X + sprites.sprite.WIDTH, sprites.sprite.Y, 60, 90)
         if sword.colliderect(enemy.RECT):
             list.remove(enemy)
-            print(enemy)
 # 4.Cтворюємо ігровое вікно з ім'ям win 
 win = pygame.display.set_mode((win_width,win_height))
 # 5. Задаємо назву ігрового вікна
@@ -48,8 +47,8 @@ def run_game():
                 if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                     mouse_cor = pygame.mouse.get_pos()
                     if button.check_mouse_cor(button.play_button, mouse_cor):
-                        scene = "lvl1"
-                        list_rect,list_create_area = area.create_area(area.list_area_1)
+                        scene = "comics"
+                        # list_rect,list_create_area = area.create_area(area.list_area_1)
                         
                     if button.check_mouse_cor(button.settings_button, mouse_cor):
                         scene = "settings"
@@ -75,6 +74,9 @@ def run_game():
                 list_rect,list_create_area = area.create_area(area.list_area_4)
         if scene == "win!":
             settings.finich.blit_sprite(win)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    game = False
             
         if scene == "settings":
             settings.settings_fon.blit_sprite(win)
@@ -85,7 +87,19 @@ def run_game():
                         mouse_cor = pygame.mouse.get_pos()
                         if button.check_mouse_cor(button.exit_button, mouse_cor):
                             scene = "menu"
-                        
+                            
+        if scene == "comics":
+            settings.comics.blit_sprite(win)
+            button.play_button_2.blit_sprite(win)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    game = False
+                if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                    mouse_cor = pygame.mouse.get_pos()
+                    if button.check_mouse_cor(button.play_button_2, mouse_cor):
+                        scene = "lvl1"
+                        list_rect,list_create_area = area.create_area(area.list_area_1)
+                                
         if "lvl" in scene:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -110,7 +124,7 @@ def run_game():
             if "lvl1" in scene:
                 for el in enemys.enemy_list1:
                     el.blit_sprite(win)
-                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 13, first_img= 2)
+                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 6, first_img= 1)
                     el.gravity(list_rect= list_rect)
                     el.shoot(win, 200, list_rect= list_rect, width=80, height=25, name_sprite= sprites.sprite)
                     can_kill_enemy(enemys.enemy_list1 ,el)
@@ -118,7 +132,7 @@ def run_game():
             if "lvl2" in scene:
                 for el in enemys.enemy_list2:
                     el.blit_sprite(win)
-                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 13, first_img= 2)
+                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 6, first_img= 1)
                     el.gravity(list_rect= list_rect)
                     el.shoot(win, 200, list_rect= list_rect, width=80, height=25, name_sprite= sprites.sprite)
                     can_kill_enemy(enemys.enemy_list2 ,el)
@@ -126,7 +140,7 @@ def run_game():
             if "lvl3" in scene:
                 for el in enemys.enemy_list3:
                     el.blit_sprite(win)
-                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 13, first_img= 2)
+                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 6, first_img= 1)
                     el.gravity(list_rect= list_rect)
                     el.shoot(win, 200, list_rect= list_rect, width=80, height=25, name_sprite= sprites.sprite)
                     can_kill_enemy(enemys.enemy_list3 ,el)
@@ -134,7 +148,7 @@ def run_game():
             if "lvl4" in scene:
                 for el in enemys.enemy_list4:
                     el.blit_sprite(win)
-                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 13, first_img= 2)
+                    el.move_enemy(list_rect, name_folder="robot_shoot", count_while= 4, last_img= 6, first_img= 1)
                     el.gravity(list_rect= list_rect)
                     el.shoot(win, 200, list_rect= list_rect, width=80, height=25, name_sprite= sprites.sprite)
                     can_kill_enemy(enemys.enemy_list4 ,el)
