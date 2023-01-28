@@ -44,7 +44,7 @@ troll_button = Settings(
 
 play_button_2 = Settings(
     x = 678,
-    y = 737,
+    y = 20,
     width= 120,
     height= 50,
     name_image= ("images/buttons/button_Play.png")
