@@ -150,7 +150,7 @@ class Sprite(settings.Settings):
             self.RECT.y -= 11
             self.Y -= 12
             self.can_move_up(list_rect)
-            self.NAME_IMAGE = "images/player/11.png"
+            self.NAME_IMAGE = "images/player/1.png"
             self.direction()
         if self.COUNT_JUMP > 40:
             self.JUMP = False
